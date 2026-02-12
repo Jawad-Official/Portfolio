@@ -1,23 +1,10 @@
 import { motion } from "framer-motion";
-import { Trophy, Award } from "lucide-react";
+import { Rocket, Zap, Globe } from "lucide-react";
 
-const achievements = [
-  {
-    icon: <Trophy className="text-yellow-400" size={28} />,
-    place: "1st Place",
-    event: "JoHackathon 2025",
-    description: "National Jordanian Competition for Programmers",
-    color: "from-yellow-500/20 to-yellow-600/5",
-    borderColor: "border-yellow-500/30",
-  },
-  {
-    icon: <Award className="text-slate-300" size={28} />,
-    place: "2nd Place",
-    event: "JoHackathon 2024",
-    description: "National Jordanian Competition for Programmers",
-    color: "from-slate-400/20 to-slate-500/5",
-    borderColor: "border-slate-400/30",
-  },
+const highlights = [
+  { icon: <Rocket size={20} />, text: "Built 5+ production-grade products before turning 18" },
+  { icon: <Zap size={20} />, text: "Full-stack developer fluent in TypeScript, React & AI" },
+  { icon: <Globe size={20} />, text: "Driven by solving real-world problems at scale" },
 ];
 
 const AboutSection = () => {
@@ -29,42 +16,52 @@ const AboutSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
-          className="mb-16"
+          className="mb-12"
         >
           <p className="text-sm font-mono tracking-widest uppercase text-primary mb-3">About Me</p>
           <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-8">
             Passionate about <span className="text-gradient">building</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed">
-            I'm a 17-year-old IT student from Jordan with a relentless drive for creating impactful software.
-            From business automation platforms to AI-powered development tools, I love turning ideas into
-            real products that solve real problems. My journey in competitive programming has sharpened my
-            skills and fueled my ambition to keep pushing boundaries.
-          </p>
         </motion.div>
 
-        {/* Achievements */}
-        <div className="grid md:grid-cols-2 gap-6">
-          {achievements.map((ach, i) => (
-            <motion.div
-              key={ach.event}
-              initial={{ opacity: 0, y: 30, scale: 0.95 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: i * 0.15 }}
-              whileHover={{ scale: 1.03, y: -4 }}
-              className={`relative overflow-hidden rounded-xl border ${ach.borderColor} bg-gradient-to-br ${ach.color} p-6 cursor-default`}
-            >
-              <div className="flex items-start gap-4">
-                <div className="p-3 rounded-lg bg-background/50">{ach.icon}</div>
-                <div>
-                  <p className="text-xl font-bold text-foreground">{ach.place}</p>
-                  <p className="text-base font-semibold text-gradient">{ach.event}</p>
-                  <p className="text-sm text-muted-foreground mt-1">{ach.description}</p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+        <div className="grid lg:grid-cols-5 gap-12 items-start">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.7 }}
+            className="lg:col-span-3"
+          >
+            <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+              I'm a 17-year-old IT student from Jordan who doesn't just learn technology — I build with it. 
+              While most people my age are still figuring out what they want to do, I've already shipped 
+              business automation platforms, AI-powered development tools, and a live NGO website.
+            </p>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              My competitive programming journey — winning back-to-back medals at Jordan's national hackathon — 
+              isn't just about accolades. It taught me to think fast, build under pressure, and deliver real 
+              solutions. Every project I take on starts with one question: <span className="text-foreground font-medium">"What problem does this solve?"</span>
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="lg:col-span-2 space-y-4"
+          >
+            {highlights.map((item, i) => (
+              <motion.div
+                key={i}
+                whileHover={{ x: 4 }}
+                className="flex items-start gap-3 p-4 rounded-xl bg-card/50 glow-border cursor-default"
+              >
+                <div className="p-2 rounded-lg bg-primary/10 text-primary mt-0.5">{item.icon}</div>
+                <p className="text-sm text-muted-foreground leading-relaxed">{item.text}</p>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </div>
     </section>
