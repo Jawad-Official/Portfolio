@@ -20,7 +20,6 @@ const projects: Project[] = [
     description:
       "An all-in-one platform for CEOs and founders to manage their business operations — from strategic planning and task execution to team coordination and AI-driven insights.",
     techStack: ["React", "TypeScript", "AI/ML", "Real-time", "Analytics"],
-    featured: true,
     liveUrl: "https://coordexa.com/",
   },
   {
@@ -37,7 +36,6 @@ const projects: Project[] = [
     description:
       "A comprehensive productivity and organization platform designed to unify task management, notes, calendars, and collaboration across all your devices.",
     techStack: ["Cross-Platform", "React Native", "Sync", "AI", "TypeScript"],
-    featured: true,
     liveUrl: "https://noraizen.onrender.com/",
   },
   {
@@ -87,6 +85,16 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
               alt={`${project.name} preview`}
               className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
             />
+          ) : project.liveUrl ? (
+            <div className="w-full h-full relative group/iframe overflow-hidden">
+              <iframe
+                src={project.liveUrl}
+                className="w-[125%] h-[125%] origin-top-left scale-[0.8] border-none point-events-none pointer-events-none opacity-60 group-hover:opacity-100 transition-opacity duration-500"
+                title={`${project.name} preview`}
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-card/80 via-transparent to-transparent opacity-60" />
+            </div>
           ) : (
             <div className="w-full h-full flex items-center justify-center relative">
               {/* Decorative grid pattern */}
@@ -109,10 +117,10 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
           )}
 
           {/* Overlay gradient */}
-          <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent opacity-80" />
+          <div className="absolute inset-0 bg-gradient-to-t from-card via-card/10 to-transparent pointer-events-none" />
 
           {/* Featured badge */}
-          {isFeatured && (
+          {project.liveUrl && (
             <div className="absolute top-4 left-4 z-10">
               <span className="px-3 py-1.5 text-[10px] font-mono uppercase tracking-[0.2em] rounded-full bg-accent/15 text-accent border border-accent/25 backdrop-blur-sm">
                 Live Project

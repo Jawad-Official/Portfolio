@@ -69,7 +69,6 @@ _Live: [afaq-dialogue.org](https://afaq-dialogue.org/)_
 I'm always looking for the next challenge. Whether it's a high-scale automation system or a world-changing AI tool, I'm ready to build it.
 
 - **LinkedIn**: [Jawad Alarman](https://linkedin.com/in/jawad-alarman)
-- **Portfolio**: [Live Site](https://jawad-portfolio.vercel.app/) _(Assuming deployment)_
 
 ---
 
