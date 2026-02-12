@@ -74,7 +74,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
         transition={{ duration: 0.4, ease: "easeOut" }}
         className={`relative rounded-2xl overflow-hidden border border-border/60 bg-card/80 backdrop-blur-sm 
           hover:border-primary/40 transition-all duration-500 h-full
-          hover:shadow-[0_8px_40px_-12px_hsl(215_100%_54%/0.25)]
+          hover:shadow-[0_8px_40px_-12px_hsl(160_84%_39%/0.25)]
           ${isFeatured ? "ring-1 ring-accent/20" : ""}`}
       >
         {/* Media area */}
@@ -89,7 +89,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
             <div className="w-full h-full flex items-center justify-center relative">
               {/* Decorative grid pattern */}
               <div className="absolute inset-0 opacity-[0.04]" style={{
-                backgroundImage: `radial-gradient(circle, hsl(215 100% 54%) 1px, transparent 1px)`,
+                backgroundImage: `radial-gradient(circle, hsl(160 84% 39%) 1px, transparent 1px)`,
                 backgroundSize: "24px 24px"
               }} />
               <motion.div

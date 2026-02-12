@@ -6,40 +6,37 @@
 
 @layer base {
   :root {
-    --background: 210 75% 10%;
-    --foreground: 220 27% 98%;
+    --background: 0 0% 4%;
+    --foreground: 0 0% 96%;
 
-    --card: 210 72% 14%;
-    --card-foreground: 220 27% 98%;
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 96%;
 
-    --popover: 210 72% 14%;
-    --popover-foreground: 220 27% 98%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 96%;
 
-    --primary: 215 100% 54%;
+    --primary: 160 84% 39%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 215 35% 9%;
-    --secondary-foreground: 210 18% 93%;
+    --secondary: 0 0% 7%;
+    --secondary-foreground: 0 0% 96%;
 
-    --muted: 215 35% 9%;
-    --muted-foreground: 213 13% 72%;
+    --muted: 0 0% 7%;
+    --muted-foreground: 0 0% 55%;
 
-    --accent: 174 80% 40%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 82 77% 55%;
+    --accent-foreground: 0 0% 4%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 213 17% 28%;
-    --input: 213 17% 28%;
-    --ring: 215 100% 54%;
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 160 84% 39%;
 
     --radius: 0.75rem;
 
-    --gray-900: 215 35% 9%;
-    --gray-700: 213 17% 28%;
-    --gray-400: 213 13% 72%;
-    --gray-100: 210 18% 93%;
+    --mint: 160 65% 51%;
   }
 }
 
@@ -61,23 +58,23 @@
 @layer utilities {
   .text-gradient {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(215 100% 54%), hsl(174 80% 40%));
+    background-image: linear-gradient(135deg, hsl(160 84% 39%), hsl(160 65% 51%));
   }
 
   .glow-primary {
-    box-shadow: 0 0 30px -5px hsl(215 100% 54% / 0.4),
-                0 0 60px -10px hsl(174 80% 40% / 0.2);
+    box-shadow: 0 0 30px -5px hsl(160 84% 39% / 0.4),
+                0 0 60px -10px hsl(82 77% 55% / 0.2);
   }
 
   .glow-border {
-    border: 1px solid hsl(215 100% 54% / 0.25);
-    box-shadow: 0 0 15px -3px hsl(215 100% 54% / 0.15),
-                inset 0 0 15px -3px hsl(215 100% 54% / 0.05);
+    border: 1px solid hsl(160 84% 39% / 0.25);
+    box-shadow: 0 0 15px -3px hsl(160 84% 39% / 0.15),
+                inset 0 0 15px -3px hsl(160 84% 39% / 0.05);
   }
 
   .glass {
-    background: hsl(210 72% 14% / 0.6);
+    background: hsl(0 0% 7% / 0.6);
     backdrop-filter: blur(20px);
-    border: 1px solid hsl(213 17% 28% / 0.5);
+    border: 1px solid hsl(0 0% 18% / 0.5);
   }
 }
