@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Play } from "lucide-react";
+import { ExternalLink, Play, ArrowUpRight } from "lucide-react";
 import afaqPreview from "@/assets/afaq-preview.png";
 
 interface Project {
@@ -10,6 +10,7 @@ interface Project {
   videoPlaceholder?: boolean;
   previewImage?: string;
   liveUrl?: string;
+  featured?: boolean;
 }
 
 const projects: Project[] = [
@@ -53,77 +54,99 @@ const projects: Project[] = [
     techStack: ["Web Design", "React", "Responsive", "Arabic RTL", "CMS"],
     previewImage: afaqPreview,
     liveUrl: "https://afaq-dialogue.org/",
+    featured: true,
   },
 ];
 
 const ProjectCard = ({ project, index }: { project: Project; index: number }) => {
+  const isFeatured = project.featured;
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.7, delay: index * 0.1 }}
-      className="group"
+      className={`group ${isFeatured ? "md:col-span-2" : ""}`}
     >
       <motion.div
-        whileHover={{ y: -6 }}
-        transition={{ duration: 0.3 }}
-        className="relative rounded-2xl overflow-hidden glow-border bg-card/50 backdrop-blur-sm hover:border-primary/50 transition-all duration-500"
+        whileHover={{ y: -8 }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
+        className={`relative rounded-2xl overflow-hidden border border-border/60 bg-card/80 backdrop-blur-sm 
+          hover:border-primary/40 transition-all duration-500 h-full
+          hover:shadow-[0_8px_40px_-12px_hsl(215_100%_54%/0.25)]
+          ${isFeatured ? "ring-1 ring-accent/20" : ""}`}
       >
         {/* Media area */}
-        <div className="relative aspect-video bg-secondary/30 overflow-hidden">
+        <div className={`relative overflow-hidden ${isFeatured ? "aspect-[2.2/1]" : "aspect-video"} bg-secondary/40`}>
           {project.previewImage ? (
             <img
               src={project.previewImage}
               alt={`${project.name} preview`}
-              className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+              className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
             />
           ) : (
-            <div className="w-full h-full flex items-center justify-center">
+            <div className="w-full h-full flex items-center justify-center relative">
+              {/* Decorative grid pattern */}
+              <div className="absolute inset-0 opacity-[0.04]" style={{
+                backgroundImage: `radial-gradient(circle, hsl(215 100% 54%) 1px, transparent 1px)`,
+                backgroundSize: "24px 24px"
+              }} />
               <motion.div
                 whileHover={{ scale: 1.1 }}
-                className="flex flex-col items-center gap-3 text-muted-foreground"
+                className="flex flex-col items-center gap-3 text-muted-foreground relative z-10"
               >
-                <div className="w-14 h-14 rounded-full glow-border flex items-center justify-center bg-background/50">
-                  <Play size={24} className="ml-1" />
+                <div className="w-16 h-16 rounded-2xl border border-border/80 flex items-center justify-center bg-background/50 group-hover:border-primary/40 group-hover:bg-primary/5 transition-all duration-500">
+                  <Play size={22} className="ml-1 group-hover:text-primary transition-colors duration-300" />
                 </div>
-                <span className="text-xs font-mono uppercase tracking-widest">Video Coming Soon</span>
+                <span className="text-xs font-mono uppercase tracking-[0.2em] text-muted-foreground/60">
+                  Video Coming Soon
+                </span>
               </motion.div>
             </div>
           )}
 
           {/* Overlay gradient */}
-          <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent opacity-80" />
+
+          {/* Featured badge */}
+          {isFeatured && (
+            <div className="absolute top-4 left-4 z-10">
+              <span className="px-3 py-1.5 text-[10px] font-mono uppercase tracking-[0.2em] rounded-full bg-accent/15 text-accent border border-accent/25 backdrop-blur-sm">
+                Live Project
+              </span>
+            </div>
+          )}
         </div>
 
         {/* Content */}
-        <div className="p-6">
-          <div className="flex items-start justify-between mb-3">
-            <div>
+        <div className="p-6 sm:p-7">
+          <div className="flex items-start justify-between mb-4">
+            <div className="space-y-1">
               <h3 className="text-xl font-bold text-foreground group-hover:text-gradient transition-all duration-300">
                 {project.name}
               </h3>
-              <p className="text-sm text-primary/80 font-medium">{project.tagline}</p>
+              <p className="text-sm text-accent font-medium tracking-wide">{project.tagline}</p>
             </div>
             {project.liveUrl && (
               <a
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-lg glow-border text-muted-foreground hover:text-foreground hover:bg-primary/10 transition-all duration-300"
+                className="p-2.5 rounded-xl border border-border/60 text-muted-foreground hover:text-accent hover:border-accent/40 hover:bg-accent/5 transition-all duration-300 flex-shrink-0"
               >
-                <ExternalLink size={16} />
+                <ArrowUpRight size={16} />
               </a>
             )}
           </div>
 
-          <p className="text-sm text-muted-foreground leading-relaxed mb-4">{project.description}</p>
+          <p className="text-sm text-muted-foreground leading-relaxed mb-5">{project.description}</p>
 
           <div className="flex flex-wrap gap-2">
             {project.techStack.map((tech) => (
               <span
                 key={tech}
-                className="px-3 py-1 text-xs font-mono rounded-full bg-primary/10 text-primary border border-primary/20"
+                className="px-3 py-1 text-[11px] font-mono rounded-lg bg-secondary text-muted-foreground border border-border/40 group-hover:border-primary/20 group-hover:text-foreground/80 transition-all duration-300"
               >
                 {tech}
               </span>
@@ -152,7 +175,7 @@ const ProjectsSection = () => {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-7">
           {projects.map((project, i) => (
             <ProjectCard key={project.name} project={project} index={i} />
           ))}
