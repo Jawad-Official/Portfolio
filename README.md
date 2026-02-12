@@ -1,73 +1,76 @@
-# Welcome to your Lovable project
+# 👋 Hello, I'm Jawad Alarman
 
-## Project info
+### 17-Year-Old Software Architect | Hackathon Champion | Problem Solver
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+I don't just write code; I build solutions. Based in Jordan, I am an IT student dedicated to pushing the boundaries of what's possible with technology. While others are learning the basics, I'm shipping production-grade platforms and leading teams to victory in national competitions.
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## 🏆 The Competitive Edge
 
-**Use Lovable**
+I thrive under pressure and excel in fast-paced environments. My performance in Jordan's premier coding competitions speaks for itself:
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+- **🥇 1st Place — JoHackathon 2025**: Ranked #1 among the nation's top young developers.
+- **🥈 2nd Place — JoHackathon 2024**: Proved consistency by securing a top spot two years in a row.
 
-Changes made via Lovable will be committed automatically to this repo.
+These aren't just trophies; they are proof of my ability to architect, build, and deliver high-impact solutions in record time.
 
-**Use your preferred IDE**
+---
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🚀 Featured Impact
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Every project I build starts with a problem and ends with a scalable solution.
 
-Follow these steps:
+### 🏢 Coordexa | Business Automation OS
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+**The Challenge:** Founders and CEOs often get bogged down in operational chaos.  
+**The Solution:** A comprehensive Execution OS that unifies strategic planning, team coordination, and AI-driven insights into a single dashboard.  
+_Live: [coordexa.com](https://coordexa.com/)_
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### 🛠️ Astrozen | Next-Gen Dev Platform
 
-# Step 3: Install the necessary dependencies.
-npm i
+**The Challenge:** The software development lifecycle is often fragmented and slow.  
+**The Solution:** An AI-powered platform that streamlines everything from initial planning to final deployment.  
+_Tech: AI, Cloud Infrastructure, DevOps, React_
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+### 🌍 AFAQ Dialogue | NGO Empowerment
 
-**Edit a file directly in GitHub**
+**The Challenge:** A leading Jordanian NGO needed a professional digital presence to reach youth and leaders.  
+**The Solution:** A fully responsive, Arabic-RTL optimized website that serves as their primary communication hub.  
+_Live: [afaq-dialogue.org](https://afaq-dialogue.org/)_
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### 📝 Noraizen & 🌿 EcoLens
 
-**Use GitHub Codespaces**
+- **Noraizen**: A cross-platform productivity engine designed to unify tasks, notes, and calendars. _Live: [noraizen.onrender.com](https://noraizen.onrender.com/)_
+- **EcoLens**: An interactive visualization platform for monitoring environmental and ecological changes.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+---
 
-## What technologies are used for this project?
+## 🛠️ My Toolbox
 
-This project is built with:
+### Technical Expertise
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- **Languages**: TypeScript, JavaScript, Python, SQL
+- **Frontend**: Next.js 15 (App Router), React, Tailwind CSS, Shadcn UI
+- **Backend/Full-Stack**: FastAPI, PostgreSQL, RESTful APIs, SaaS Architecture
+- **AI & Systems**: AI/ML Integration, System Design, Product Thinking
 
-## How can I deploy this project?
+### The "Jawad" Factor (Soft Skills)
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+- **Problem Decomposition**: Breaking down "impossible" problems into executable steps.
+- **Decision Making Under Pressure**: honed through national-level hackathons.
+- **Strategic Leadership**: Leading technical projects and teams to successful delivery.
+- **Product Thinking**: Focusing on "Why" we build, not just "How".
 
-## Can I connect a custom domain to my Lovable project?
+---
 
-Yes, you can!
+## 📬 Let's Build Something Great
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+I'm always looking for the next challenge. Whether it's a high-scale automation system or a world-changing AI tool, I'm ready to build it.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+- **LinkedIn**: [Jawad Alarman](https://linkedin.com/in/jawad-alarman)
+- **Portfolio**: [Live Site](https://jawad-portfolio.vercel.app/) _(Assuming deployment)_
+
+---
+
+> "What problem does this solve?" — My guiding principle for every line of code.

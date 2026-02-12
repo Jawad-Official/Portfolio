@@ -20,7 +20,8 @@ const projects: Project[] = [
     description:
       "An all-in-one platform for CEOs and founders to manage their business operations — from strategic planning and task execution to team coordination and AI-driven insights.",
     techStack: ["React", "TypeScript", "AI/ML", "Real-time", "Analytics"],
-    videoPlaceholder: true,
+    featured: true,
+    liveUrl: "https://coordexa.com/",
   },
   {
     name: "Astrozen",
@@ -28,7 +29,7 @@ const projects: Project[] = [
     description:
       "A next-generation development platform that leverages artificial intelligence to streamline the entire software development lifecycle — from planning to deployment.",
     techStack: ["AI", "TypeScript", "Cloud", "DevOps", "React"],
-    videoPlaceholder: true,
+    previewImage: "/Astrozen.png",
   },
   {
     name: "Noraizen",
@@ -36,7 +37,8 @@ const projects: Project[] = [
     description:
       "A comprehensive productivity and organization platform designed to unify task management, notes, calendars, and collaboration across all your devices.",
     techStack: ["Cross-Platform", "React Native", "Sync", "AI", "TypeScript"],
-    videoPlaceholder: true,
+    featured: true,
+    liveUrl: "https://noraizen.onrender.com/",
   },
   {
     name: "EcoLens",
