@@ -4,7 +4,10 @@ import { Github, Linkedin, Menu, X } from "lucide-react";
 
 const navItems = [
   { label: "About", href: "#about" },
+  { label: "Achievements", href: "#achievements" },
   { label: "Projects", href: "#projects" },
+  { label: "Skills", href: "#skills" },
+  { label: "Contact", href: "#contact" },
 ];
 
 const Navbar = () => {
@@ -30,7 +33,7 @@ const Navbar = () => {
         <a href="#" className="text-xl font-bold text-gradient">JA</a>
 
         {/* Desktop */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-6">
           {navItems.map((item) => (
             <a
               key={item.href}
