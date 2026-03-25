@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Github, Linkedin, Menu, X } from "lucide-react";
 
 const navItems = [
+  { label: "Home", href: "#" },
   { label: "About", href: "#about" },
   { label: "Achievements", href: "#achievements" },
   { label: "Projects", href: "#projects" },
@@ -11,50 +12,74 @@ const navItems = [
 ];
 
 const Navbar = () => {
-  const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "glass" : "bg-transparent"
-      }`}
+    <nav
+      className="fixed top-0 left-0 right-0 z-50"
+      style={{ background: "#FFD93D", borderBottom: "3px solid #000" }}
     >
-      <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="#" className="text-xl font-bold text-gradient">JA</a>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+        {/* Logo */}
+        <a
+          href="#"
+          className="flex items-center gap-0 flex-shrink-0"
+          aria-label="JA Logo"
+        >
+          <div
+            style={{
+              background: "#66D9EF",
+              border: "2px solid #000",
+              boxShadow: "3px 3px 0px #000",
+              width: 42,
+              height: 42,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontWeight: 800,
+              fontSize: "18px",
+              fontFamily: "Space Grotesk, sans-serif",
+              letterSpacing: "-0.5px",
+            }}
+          >
+            JA
+          </div>
+        </a>
 
-        {/* Desktop */}
+        {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-6">
           {navItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+              className="text-sm font-semibold text-black hover:underline underline-offset-4 decoration-2 transition-all"
+              style={{ fontFamily: "Space Grotesk, sans-serif" }}
             >
               {item.label}
             </a>
           ))}
-          <div className="flex items-center gap-3 ml-4">
-            <a href="https://github.com/Jawad-Official" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
-              <Github size={18} />
-            </a>
-            <a href="https://www.linkedin.com/in/jawad-alarman-6194453a9" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
-              <Linkedin size={18} />
-            </a>
-          </div>
+        </div>
+
+        {/* CTA Button */}
+        <div className="hidden md:flex items-center gap-3">
+          <a
+            href="#contact"
+            className="neo-btn px-4 py-2 text-sm font-bold text-black"
+            style={{
+              background: "#66D9EF",
+              fontFamily: "Space Grotesk, sans-serif",
+            }}
+          >
+            Get In Touch!
+          </a>
         </div>
 
         {/* Mobile toggle */}
-        <button className="md:hidden text-foreground" onClick={() => setMobileOpen(!mobileOpen)}>
+        <button
+          className="md:hidden p-1"
+          onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label="Toggle menu"
+        >
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
@@ -66,7 +91,7 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass border-t border-border"
+            style={{ borderTop: "2px solid #000", background: "#FFD93D" }}
           >
             <div className="px-6 py-4 flex flex-col gap-4">
               {navItems.map((item) => (
@@ -74,24 +99,24 @@ const Navbar = () => {
                   key={item.href}
                   href={item.href}
                   onClick={() => setMobileOpen(false)}
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className="text-sm font-semibold text-black hover:underline"
                 >
                   {item.label}
                 </a>
               ))}
-              <div className="flex items-center gap-3 pt-2 border-t border-border">
-                <a href="https://github.com/Jawad-Official" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
-                  <Github size={18} />
-                </a>
-                <a href="https://www.linkedin.com/in/jawad-alarman-6194453a9" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
-                  <Linkedin size={18} />
-                </a>
-              </div>
+              <a
+                href="#contact"
+                onClick={() => setMobileOpen(false)}
+                className="neo-btn px-4 py-2 text-sm font-bold text-black text-center mt-2"
+                style={{ background: "#66D9EF" }}
+              >
+                Get In Touch!
+              </a>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.nav>
+    </nav>
   );
 };
 

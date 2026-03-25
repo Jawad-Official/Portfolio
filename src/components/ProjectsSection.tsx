@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Play, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import afaqPreview from "@/assets/afaq-preview.png";
 
 interface Project {
@@ -7,10 +7,9 @@ interface Project {
   tagline: string;
   description: string;
   techStack: string[];
-  videoPlaceholder?: boolean;
   previewImage?: string;
   liveUrl?: string;
-  featured?: boolean;
+  accentColor?: string;
 }
 
 const projects: Project[] = [
@@ -21,6 +20,7 @@ const projects: Project[] = [
       "An all-in-one platform for CEOs and founders to manage their business operations — from strategic planning and task execution to team coordination and AI-driven insights.",
     techStack: ["React", "TypeScript", "AI/ML", "Real-time", "Analytics"],
     liveUrl: "https://coordexa.com/",
+    accentColor: "#FFD93D",
   },
   {
     name: "Astrozen",
@@ -29,6 +29,7 @@ const projects: Project[] = [
       "A next-generation development platform that leverages artificial intelligence to streamline the entire software development lifecycle — from planning to deployment.",
     techStack: ["AI", "TypeScript", "Cloud", "DevOps", "React"],
     previewImage: "/Astrozen.png",
+    accentColor: "#66D9EF",
   },
   {
     name: "Noraizen",
@@ -37,6 +38,7 @@ const projects: Project[] = [
       "A comprehensive productivity and organization platform designed to unify task management, notes, calendars, and collaboration across all your devices.",
     techStack: ["Cross-Platform", "React Native", "Sync", "AI", "TypeScript"],
     liveUrl: "https://noraizen.onrender.com/",
+    accentColor: "#6BCB77",
   },
   {
     name: "EcoLens",
@@ -44,7 +46,7 @@ const projects: Project[] = [
     description:
       "An interactive platform that visualizes environmental data to help users understand and monitor ecological changes through compelling data-driven experiences.",
     techStack: ["Data Viz", "React", "Maps", "APIs", "TypeScript"],
-    videoPlaceholder: true,
+    accentColor: "#FF6B9D",
   },
   {
     name: "AFAQ Dialogue",
@@ -54,138 +56,176 @@ const projects: Project[] = [
     techStack: ["Web Design", "React", "Responsive", "Arabic RTL", "CMS"],
     previewImage: afaqPreview,
     liveUrl: "https://afaq-dialogue.org/",
-    featured: true,
+    accentColor: "#FFD93D",
   },
 ];
 
-const ProjectCard = ({ project, index }: { project: Project; index: number }) => {
-  const isFeatured = project.featured;
-
+const ProjectCard = ({
+  project,
+  index,
+}: {
+  project: Project;
+  index: number;
+}) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.7, delay: index * 0.1 }}
-      className={`group ${isFeatured ? "md:col-span-2" : ""}`}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.6, delay: index * 0.08 }}
+      whileHover={{ y: -5, x: -2 }}
+      className="neo-card overflow-hidden group cursor-default"
     >
-      <motion.div
-        whileHover={{ y: -8 }}
-        transition={{ duration: 0.4, ease: "easeOut" }}
-        className={`relative rounded-2xl overflow-hidden border border-border/60 bg-card/80 backdrop-blur-sm 
-          hover:border-primary/40 transition-all duration-500 h-full
-          hover:shadow-[0_8px_40px_-12px_hsl(160_84%_39%/0.25)]
-          ${isFeatured ? "ring-1 ring-accent/20" : ""}`}
-      >
-        {/* Media area */}
-        <div className={`relative overflow-hidden ${isFeatured ? "aspect-[2.2/1]" : "aspect-video"} bg-secondary/40`}>
+      {/* Top color bar */}
+      <div
+        style={{
+          height: 8,
+          background: project.accentColor || "#FFD93D",
+          borderBottom: "2px solid #000",
+        }}
+      />
+
+      {/* Media area */}
+      {(project.previewImage || project.liveUrl) && (
+        <div
+          style={{
+            height: 160,
+            overflow: "hidden",
+            borderBottom: "2px solid #000",
+            background: "#f0f0f0",
+            position: "relative",
+          }}
+        >
           {project.previewImage ? (
             <img
               src={project.previewImage}
               alt={`${project.name} preview`}
-              className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                objectPosition: "top",
+                transition: "transform 0.4s",
+              }}
+              className="group-hover:scale-105"
             />
-          ) : project.liveUrl ? (
-            <div className="w-full h-full relative group/iframe overflow-hidden">
+          ) : (
+            <div className="w-full h-full relative overflow-hidden">
               <iframe
                 src={project.liveUrl}
-                className="w-[125%] h-[125%] origin-top-left scale-[0.8] border-none point-events-none pointer-events-none opacity-60 group-hover:opacity-100 transition-opacity duration-500"
+                className="w-[125%] h-[125%] origin-top-left scale-[0.8] border-none pointer-events-none opacity-70 group-hover:opacity-100 transition-opacity duration-500"
                 title={`${project.name} preview`}
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-card/80 via-transparent to-transparent opacity-60" />
-            </div>
-          ) : (
-            <div className="w-full h-full flex items-center justify-center relative">
-              {/* Decorative grid pattern */}
-              <div className="absolute inset-0 opacity-[0.04]" style={{
-                backgroundImage: `radial-gradient(circle, hsl(160 84% 39%) 1px, transparent 1px)`,
-                backgroundSize: "24px 24px"
-              }} />
-              <motion.div
-                whileHover={{ scale: 1.1 }}
-                className="flex flex-col items-center gap-3 text-muted-foreground relative z-10"
-              >
-                <div className="w-16 h-16 rounded-2xl border border-border/80 flex items-center justify-center bg-background/50 group-hover:border-primary/40 group-hover:bg-primary/5 transition-all duration-500">
-                  <Play size={22} className="ml-1 group-hover:text-primary transition-colors duration-300" />
-                </div>
-                <span className="text-xs font-mono uppercase tracking-[0.2em] text-muted-foreground/60">
-                  Video Coming Soon
-                </span>
-              </motion.div>
             </div>
           )}
-
-          {/* Overlay gradient */}
-          <div className="absolute inset-0 bg-gradient-to-t from-card via-card/10 to-transparent pointer-events-none" />
-
-          {/* Featured badge */}
           {project.liveUrl && (
-            <div className="absolute top-4 left-4 z-10">
-              <span className="px-3 py-1.5 text-[10px] font-mono uppercase tracking-[0.2em] rounded-full bg-accent/15 text-accent border border-accent/25 backdrop-blur-sm">
-                Live Project
-              </span>
+            <div
+              style={{
+                position: "absolute",
+                top: 8,
+                left: 8,
+                background: "#6BCB77",
+                border: "2px solid #000",
+                padding: "2px 10px",
+                fontSize: 11,
+                fontWeight: 700,
+                fontFamily: "Space Mono, monospace",
+              }}
+            >
+              LIVE
             </div>
           )}
         </div>
+      )}
 
-        {/* Content */}
-        <div className="p-6 sm:p-7">
-          <div className="flex items-start justify-between mb-4">
-            <div className="space-y-1">
-              <h3 className="text-xl font-bold text-foreground group-hover:text-gradient transition-all duration-300">
-                {project.name}
-              </h3>
-              <p className="text-sm text-accent font-medium tracking-wide">{project.tagline}</p>
-            </div>
-            {project.liveUrl && (
-              <a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2.5 rounded-xl border border-border/60 text-muted-foreground hover:text-accent hover:border-accent/40 hover:bg-accent/5 transition-all duration-300 flex-shrink-0"
-              >
-                <ArrowUpRight size={16} />
-              </a>
-            )}
+      {/* Content */}
+      <div className="p-5">
+        <div className="flex items-start justify-between mb-3">
+          <div>
+            <h3
+              className="text-xl font-bold"
+              style={{ fontFamily: "Space Grotesk, sans-serif" }}
+            >
+              {project.name}
+            </h3>
+            <p
+              className="text-sm font-semibold mt-0.5"
+              style={{ color: "#66D9EF" }}
+            >
+              {project.tagline}
+            </p>
           </div>
-
-          <p className="text-sm text-muted-foreground leading-relaxed mb-5">{project.description}</p>
-
-          <div className="flex flex-wrap gap-2">
-            {project.techStack.map((tech) => (
-              <span
-                key={tech}
-                className="px-3 py-1 text-[11px] font-mono rounded-lg bg-secondary text-muted-foreground border border-border/40 group-hover:border-primary/20 group-hover:text-foreground/80 transition-all duration-300"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
+          {project.liveUrl && (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="neo-btn p-2 flex-shrink-0"
+              style={{ background: project.accentColor || "#FFD93D" }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <ArrowUpRight size={16} />
+            </a>
+          )}
         </div>
-      </motion.div>
+
+        <p className="text-sm text-gray-600 leading-relaxed mb-4">
+          {project.description}
+        </p>
+
+        <div className="flex flex-wrap gap-2">
+          {project.techStack.map((tech) => (
+            <span
+              key={tech}
+              style={{
+                border: "2px solid #000",
+                padding: "2px 10px",
+                fontSize: 11,
+                fontWeight: 600,
+                fontFamily: "Space Mono, monospace",
+                background: "#f0f0f0",
+              }}
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+      </div>
     </motion.div>
   );
 };
 
 const ProjectsSection = () => {
   return (
-    <section id="projects" className="py-32 relative">
-      <div className="max-w-6xl mx-auto px-6">
+    <section
+      id="projects"
+      className="py-24 relative"
+      style={{ background: "#fff" }}
+    >
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
-          className="mb-16"
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6 }}
+          className="mb-12"
         >
-          <p className="text-sm font-mono tracking-widest uppercase text-primary mb-3">My Work</p>
-          <h2 className="text-4xl sm:text-5xl font-bold text-foreground">
-            Featured <span className="text-gradient">Projects</span>
+          <p
+            className="font-mono text-xs uppercase tracking-widest mb-2"
+            style={{ color: "#66D9EF" }}
+          >
+            // my work
+          </p>
+          <h2
+            className="text-4xl sm:text-5xl font-bold"
+            style={{ fontFamily: "Space Grotesk, sans-serif" }}
+          >
+            <span className="highlight-yellow px-1">PROJECTS</span>
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-7">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, i) => (
             <ProjectCard key={project.name} project={project} index={i} />
           ))}
