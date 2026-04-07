@@ -58,6 +58,16 @@ const projects: Project[] = [
     liveUrl: "https://afaq-dialogue.org/",
     accentColor: "#FFD93D",
   },
+  {
+    name: "Taqa e-store",
+    tagline: "Regional E-commerce Platform",
+    description:
+      "An e-commerce platform built from the ground up for a regional store called Taqa \"طاقة\", serving real markets across different countries.",
+    techStack: ["React", "FastAPI", "Python", "E-commerce"],
+    previewImage: "/taqa.png",
+    liveUrl: "https://taqa-shop.com",
+    accentColor: "#FF9F43",
+  },
 ];
 
 const ProjectCard = ({
