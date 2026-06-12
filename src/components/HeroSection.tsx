@@ -80,7 +80,7 @@ const HeroSection = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-base sm:text-lg text-gray-700 mb-6 max-w-md mx-auto lg:mx-0 leading-relaxed"
             >
-              17-year-old IT Student & Hackathon Champion from Jordan. I love
+              18-year-old IT Student & Hackathon Champion from Jordan. I love
               building AI-powered tools, full-stack platforms, and solving
               real-world problems at scale.
             </motion.p>

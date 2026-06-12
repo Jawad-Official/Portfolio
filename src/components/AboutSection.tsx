@@ -41,7 +41,7 @@ const AboutSection = () => {
             className="lg:col-span-3"
           >
             <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-5">
-              I'm a 17-year-old IT student from Jordan who doesn't just learn
+              I'm a 18-year-old IT student from Jordan who doesn't just learn
               technology — I build with it. While most people my age are still
               figuring out what they want to do, I've already shipped business
               automation platforms, AI-powered development tools, and a live NGO
