@@ -46,6 +46,8 @@ const projects: Project[] = [
     description:
       "An interactive platform that visualizes environmental data to help users understand and monitor ecological changes through compelling data-driven experiences.",
     techStack: ["Data Viz", "React", "Maps", "APIs", "TypeScript"],
+    previewImage: "/dashboard-3d.png",
+    liveUrl: "https://github.com/Jawad-Official/EcoLens",
     accentColor: "#FF6B9D",
   },
   {
