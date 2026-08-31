@@ -1,5 +1,12 @@
 import { motion } from "framer-motion";
-import { Github, Linkedin, ArrowRight } from "lucide-react";
+import { Github, Linkedin, Mail, FileDown, ArrowRight } from "lucide-react";
+import {
+  CONTACT_EMAIL,
+  CONTACT_EMAIL_HREF,
+  CV_URL,
+  GITHUB_URL,
+  LINKEDIN_URL,
+} from "@/lib/contact";
 
 const ContactSection = () => {
   return (
@@ -38,18 +45,11 @@ const ContactSection = () => {
             className="text-4xl sm:text-5xl font-bold mb-5"
             style={{ fontFamily: "Space Grotesk, sans-serif" }}
           >
-            Let's Build Something
-            <br />
-            <span
-              className="font-caveat text-5xl sm:text-6xl"
-            >
-              Amazing Together
-            </span>
+            Get in touch
           </h2>
           <p className="text-base text-gray-800 max-w-xl mx-auto leading-relaxed">
-            I'm always open to new opportunities, collaborations, and
-            conversations. Whether you have a project idea, want to team up, or
-            just want to say hi — reach out!
+            I'm looking for part-time and internship engineering work, in Amman
+            or remote. Email is fastest.
           </p>
         </motion.div>
 
@@ -58,12 +58,29 @@ const ContactSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          className="flex flex-col items-center gap-6"
         >
+          {/* Primary CTA: email */}
           <motion.a
             whileHover={{ y: -3 }}
             whileTap={{ scale: 0.97 }}
-            href="https://github.com/Jawad-Official"
+            href={CONTACT_EMAIL_HREF}
+            className="neo-btn flex items-center gap-3 px-8 py-4 font-bold text-base group max-w-full"
+            style={{ background: "#fff" }}
+          >
+            <Mail size={22} className="flex-shrink-0" />
+            <span className="break-all">{CONTACT_EMAIL}</span>
+            <ArrowRight
+              size={16}
+              className="flex-shrink-0 group-hover:translate-x-1 transition-transform duration-300"
+            />
+          </motion.a>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <motion.a
+            whileHover={{ y: -3 }}
+            whileTap={{ scale: 0.97 }}
+            href={GITHUB_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="neo-btn flex items-center gap-3 px-8 py-4 font-bold text-base group"
@@ -79,7 +96,7 @@ const ContactSection = () => {
           <motion.a
             whileHover={{ y: -3 }}
             whileTap={{ scale: 0.97 }}
-            href="https://www.linkedin.com/in/jawad-alarman-6194453a9"
+            href={LINKEDIN_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="neo-btn flex items-center gap-3 px-8 py-4 font-bold text-base group"
@@ -92,6 +109,21 @@ const ContactSection = () => {
               className="group-hover:translate-x-1 transition-transform duration-300"
             />
           </motion.a>
+          <motion.a
+            whileHover={{ y: -3 }}
+            whileTap={{ scale: 0.97 }}
+            href={CV_URL}
+            className="neo-btn flex items-center gap-3 px-8 py-4 font-bold text-base group"
+            style={{ background: "#fff" }}
+          >
+            <FileDown size={22} />
+            Download CV
+            <ArrowRight
+              size={16}
+              className="group-hover:translate-x-1 transition-transform duration-300"
+            />
+          </motion.a>
+          </div>
         </motion.div>
       </div>
     </section>
