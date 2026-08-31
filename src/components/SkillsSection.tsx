@@ -2,35 +2,48 @@ import { motion } from "framer-motion";
 
 const skillGroups = [
   {
-    category: "Languages",
-    color: "#FFD93D",
-    skills: ["TypeScript", "JavaScript", "Python", "SQL"],
+    category: "Backend",
+    color: "#6BCB77",
+    skills: [
+      "Python",
+      "FastAPI",
+      "PostgreSQL",
+      "Redis",
+      "Celery",
+      "async / asyncio",
+      "REST API design",
+      "pytest",
+    ],
   },
   {
     category: "Frontend",
     color: "#66D9EF",
-    skills: ["React", "Next.js", "Tailwind CSS", "State Management", "Responsive UI"],
+    skills: ["TypeScript", "React", "Next.js", "React Native", "Tailwind CSS"],
   },
   {
-    category: "Backend",
-    color: "#6BCB77",
-    skills: ["Next.js", "FastAPI", "PostgreSQL", "REST APIs", "SaaS Development"],
-  },
-  {
-    category: "AI & Product",
+    category: "Data & ML",
     color: "#FF6B9D",
-    skills: ["AI / Machine Learning", "Product Thinking", "System Design"],
+    skills: [
+      "SQL",
+      "pandas",
+      "scikit-learn",
+      "logistic regression",
+      "class imbalance handling",
+      "model evaluation",
+    ],
+  },
+  {
+    category: "Practices",
+    color: "#FFD93D",
+    skills: ["System design", "Git", "Testing", "Problem decomposition"],
   },
 ];
 
 const softSkills = [
   "Problem Solving",
   "Structured Thinking",
-  "Decision Under Pressure",
   "Prioritization",
-  "Leadership",
   "Problem Decomposition",
-  "Vibe Coding",
 ];
 
 const SkillsSection = () => {

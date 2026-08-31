@@ -7,7 +7,7 @@ const achievements = [
     place: "1st Place",
     event: "JoHackathon 2025",
     description:
-      "National Jordanian Competition for Programmers — Competing against the country's top young developers and taking the gold.",
+      "Jordan's national hackathon. First place against the country's top young developers.",
     bg: "#FFD93D",
   },
   {
@@ -15,7 +15,7 @@ const achievements = [
     place: "2nd Place",
     event: "JoHackathon 2024",
     description:
-      "National Jordanian Competition for Programmers — Proving consistency by placing at the top two years in a row.",
+      "Jordan's national hackathon. Second place, the year before taking first.",
     bg: "#66D9EF",
   },
 ];

@@ -1,15 +1,23 @@
 import { motion } from "framer-motion";
-import { Github, Linkedin, Code2, Terminal, HardDrive } from "lucide-react";
+import { Github, Linkedin, Mail, Code2, Terminal, HardDrive } from "lucide-react";
+// TODO(jawad): compress src/assets/me.jpg. It is 2.8 MB, the largest asset on the page.
 import meImage from "@/assets/me.jpg";
+import {
+  CONTACT_EMAIL_HREF,
+  CV_URL,
+  GITHUB_URL,
+  LINKEDIN_URL,
+} from "@/lib/contact";
 
 const techPills = [
-  { name: "React", icon: "⚛" },
-  { name: "TypeScript", icon: "TS" },
-  { name: "Python", icon: "🐍" },
-  { name: "Next.js", icon: "▲" },
-  { name: "AI/ML", icon: "🤖" },
-  { name: "PostgreSQL", icon: "🐘" },
-  { name: "FastAPI", icon: "⚡" },
+  "Python",
+  "FastAPI",
+  "PostgreSQL",
+  "Redis",
+  "Celery",
+  "Next.js",
+  "React Native",
+  "TypeScript",
 ];
 
 const FloatingIcon = ({
@@ -78,11 +86,12 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-base sm:text-lg text-gray-700 mb-6 max-w-md mx-auto lg:mx-0 leading-relaxed"
+              className="text-base sm:text-lg text-gray-700 mb-6 max-w-xl mx-auto lg:mx-0 leading-relaxed"
             >
-              18-year-old IT Student & Hackathon Champion from Jordan. I love
-              building AI-powered tools, full-stack platforms, and solving
-              real-world problems at scale.
+              Backend and AI engineer. Python, FastAPI, PostgreSQL, Redis and
+              Celery, plus Next.js and React Native on the front. Currently
+              building an AI language-learning platform for an English-language
+              school in Amman.
             </motion.p>
 
             {/* Social icons */}
@@ -93,7 +102,7 @@ const HeroSection = () => {
               className="flex items-center gap-3 justify-center lg:justify-start mb-6"
             >
               <a
-                href="https://github.com/Jawad-Official"
+                href={GITHUB_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="neo-btn p-2.5"
@@ -103,7 +112,7 @@ const HeroSection = () => {
                 <Github size={20} />
               </a>
               <a
-                href="https://www.linkedin.com/in/jawad-alarman-6194453a9"
+                href={LINKEDIN_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="neo-btn p-2.5"
@@ -112,6 +121,14 @@ const HeroSection = () => {
               >
                 <Linkedin size={20} />
               </a>
+              <a
+                href={CONTACT_EMAIL_HREF}
+                className="neo-btn p-2.5"
+                style={{ background: "#fff" }}
+                aria-label="Email"
+              >
+                <Mail size={20} />
+              </a>
             </motion.div>
 
             {/* CTA */}
@@ -119,6 +136,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
+              className="flex flex-wrap items-center gap-3 justify-center lg:justify-start"
             >
               <a
                 href="#contact"
@@ -126,6 +144,13 @@ const HeroSection = () => {
                 style={{ background: "#66D9EF" }}
               >
                 Get In Touch!
+              </a>
+              <a
+                href={CV_URL}
+                className="neo-btn inline-flex items-center gap-2 px-6 py-3 text-base font-bold"
+                style={{ background: "#fff" }}
+              >
+                Download CV
               </a>
             </motion.div>
           </div>
@@ -161,7 +186,7 @@ const HeroSection = () => {
                   display: "block",
                 }}
               />
-              {/* "Full-Stack Builder" badge */}
+              {/* Location badge */}
               <div
                 style={{
                   position: "absolute",
@@ -175,7 +200,7 @@ const HeroSection = () => {
                   whiteSpace: "nowrap",
                 }}
               >
-                Still discovering the world ✨
+                Amman, Jordan
               </div>
             </div>
 
@@ -233,15 +258,14 @@ const HeroSection = () => {
         >
           {techPills.map((pill, i) => (
             <motion.div
-              key={pill.name}
+              key={pill}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 + i * 0.05 }}
               whileHover={{ y: -3 }}
               className="neo-btn flex items-center gap-2 px-4 py-2 text-sm font-semibold bg-white cursor-default"
             >
-              <span className="font-mono text-xs">{pill.icon}</span>
-              {pill.name}
+              {pill}
             </motion.div>
           ))}
         </motion.div>

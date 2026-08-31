@@ -2,9 +2,18 @@ import { motion } from "framer-motion";
 import { Rocket, Zap, Globe } from "lucide-react";
 
 const highlights = [
-  { icon: <Rocket size={20} />, text: "Built 5+ production-grade products before turning 18" },
-  { icon: <Zap size={20} />, text: "Full-stack developer fluent in TypeScript, React & AI" },
-  { icon: <Globe size={20} />, text: "Driven by solving real-world problems at scale" },
+  {
+    icon: <Zap size={20} />,
+    text: "Python backend: FastAPI, PostgreSQL, Redis, Celery, async, typing, testing",
+  },
+  {
+    icon: <Rocket size={20} />,
+    text: "1st place, JoHackathon 2025, Jordan's national hackathon",
+  },
+  {
+    icon: <Globe size={20} />,
+    text: "Shipping client work: e-commerce and an AI language-learning platform",
+  },
 ];
 
 const AboutSection = () => {
@@ -41,22 +50,19 @@ const AboutSection = () => {
             className="lg:col-span-3"
           >
             <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-5">
-              I'm a 18-year-old IT student from Jordan who doesn't just learn
-              technology — I build with it. While most people my age are still
-              figuring out what they want to do, I've already shipped business
-              automation platforms, AI-powered development tools, and a live NGO
-              website.
+              I build backend systems and the products on top of them. Most of my
+              work is Python: FastAPI services, PostgreSQL, Redis and Celery for
+              anything that needs to run out of band, with Next.js or React
+              Native where a client is needed.
             </p>
             <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
-              My competitive programming journey — winning back-to-back medals at
-              Jordan's national hackathon — isn't just about accolades. It taught
-              me to think fast, build under pressure, and deliver real solutions.
-              Every project I take on starts with one question:{" "}
-              <span
-                className="font-bold highlight-cyan px-1"
-              >
-                "What problem does this solve?"
-              </span>
+              I placed{" "}
+              <span className="font-bold highlight-cyan px-1">
+                1st at JoHackathon 2025
+              </span>{" "}
+              and 2nd in 2024, Jordan's national hackathon. I'm starting a BSc in
+              AI and Data Science at Al-Hussein Technical University, and I take
+              on client and part-time engineering work alongside it.
             </p>
           </motion.div>
 
