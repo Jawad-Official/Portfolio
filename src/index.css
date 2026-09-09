@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&family=Caveat:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Martian+Mono:wght@400;500&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -6,14 +6,19 @@
 
 @layer base {
   :root {
-    --yellow: #FFD93D;
-    --cyan: #66D9EF;
-    --pink: #FF6B9D;
-    --green: #6BCB77;
-    --black: #000000;
-    --white: #ffffff;
-    --bg: #f0f0f0;
-    --border: #000000;
+    --jw-cream: #FAF8F3;
+    --jw-ink: #1A1815;
+    --jw-ink-soft: #302D28;
+    --jw-ink-softer: #4A463F;
+    --jw-muted: #67625A;
+    --jw-line: #DFDAD0;
+    --jw-accent: #2A46C8;
+    --jw-accent-hover: #1A2E9E;
+    --jw-accent-tint: #EDEFFA;
+    --jw-dark: #1A1815;
+    --jw-dark-line: #33302B;
+    --jw-dark-muted: #A39C90;
+    --jw-dark-accent: #93A6F5;
 
     --background: 0 0% 94%;
     --foreground: 0 0% 0%;
@@ -45,9 +50,12 @@
   }
 
   body {
-    background-color: #f0f0f0;
-    color: #000;
-    font-family: "Space Grotesk", sans-serif;
+    background-color: var(--jw-cream);
+    color: var(--jw-ink);
+    font-family: "Archivo", "Helvetica Neue", Helvetica, sans-serif;
+    font-weight: 400;
+    text-wrap: pretty;
+    -webkit-font-smoothing: antialiased;
   }
 
   html {
@@ -55,111 +63,54 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: "Space Grotesk", sans-serif;
-    font-weight: 700;
+    font-family: "Archivo", "Helvetica Neue", Helvetica, sans-serif;
+  }
+
+  a {
+    color: var(--jw-accent);
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: var(--jw-accent-hover);
+  }
+
+  ::selection {
+    background: #D9DFFA;
   }
 }
 
 @layer utilities {
-  .font-caveat {
-    font-family: "Caveat", cursive;
-  }
-
   .font-mono {
-    font-family: "Space Mono", monospace;
+    font-family: "Martian Mono", ui-monospace, monospace;
   }
 
-  .neo-border {
-    border: 2px solid #000;
+  .mono-label {
+    font-family: "Martian Mono", ui-monospace, monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--jw-muted);
   }
 
-  .neo-border-3 {
-    border: 3px solid #000;
+  .underline-link {
+    border-bottom: 1px solid var(--jw-line);
+    padding-bottom: 2px;
+    transition: border-color 0.2s;
   }
 
-  .neo-shadow {
-    box-shadow: 4px 4px 0px 0px #000;
+  .underline-link:hover {
+    border-bottom-color: currentColor;
   }
 
-  .neo-shadow-lg {
-    box-shadow: 6px 6px 0px 0px #000;
+  .contact-email-link,
+  .contact-dark-link {
+    transition: border-color 0.2s, color 0.2s;
   }
 
-  .neo-shadow-xl {
-    box-shadow: 8px 8px 0px 0px #000;
-  }
-
-  .neo-btn {
-    border: 2px solid #000;
-    box-shadow: 4px 4px 0px 0px #000;
-    transition: transform 0.1s, box-shadow 0.1s;
-    cursor: pointer;
-  }
-
-  .neo-btn:hover {
-    transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0px 0px #000;
-  }
-
-  .neo-btn:active {
-    transform: translate(4px, 4px);
-    box-shadow: 0px 0px 0px 0px #000;
-  }
-
-  .neo-card {
-    border: 2px solid #000;
-    box-shadow: 6px 6px 0px 0px #000;
-    background: #fff;
-  }
-
-  .dot-grid {
-    background-image: radial-gradient(circle, #000 1px, transparent 1px);
-    background-size: 24px 24px;
-    opacity: 0.07;
-  }
-
-  .grid-bg {
-    background-image:
-      linear-gradient(rgba(0,0,0,0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0,0,0,0.06) 1px, transparent 1px);
-    background-size: 32px 32px;
-  }
-
-  .highlight-yellow {
-    background: linear-gradient(120deg, #FFD93D 0%, #FFD93D 100%);
-    background-repeat: no-repeat;
-    background-size: 100% 40%;
-    background-position: 0 88%;
-  }
-
-  .highlight-cyan {
-    background: linear-gradient(120deg, #66D9EF 0%, #66D9EF 100%);
-    background-repeat: no-repeat;
-    background-size: 100% 40%;
-    background-position: 0 88%;
-  }
-
-  .paper-tear-bottom {
-    position: relative;
-  }
-
-  .paper-tear-bottom::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    right: 0;
-    height: 40px;
-    background-color: #f0f0f0;
-    clip-path: polygon(
-      0% 60%, 2% 40%, 4% 55%, 6% 35%, 8% 50%, 10% 30%, 12% 45%,
-      14% 25%, 16% 40%, 18% 20%, 20% 38%, 22% 18%, 24% 35%, 26% 15%,
-      28% 32%, 30% 12%, 32% 30%, 34% 10%, 36% 28%, 38% 8%, 40% 26%,
-      42% 6%, 44% 24%, 46% 4%, 48% 22%, 50% 2%, 52% 20%, 54% 0%,
-      56% 18%, 58% 0%, 60% 16%, 62% 0%, 64% 14%, 66% 0%, 68% 12%,
-      70% 0%, 72% 10%, 74% 0%, 76% 8%, 78% 0%, 80% 6%, 82% 0%,
-      84% 4%, 86% 0%, 88% 4%, 90% 0%, 92% 6%, 94% 2%, 96% 8%,
-      98% 4%, 100% 10%, 100% 100%, 0% 100%
-    );
+  .contact-email-link:hover,
+  .contact-dark-link:hover {
+    border-bottom-color: var(--jw-dark-accent) !important;
+    color: var(--jw-dark-accent) !important;
   }
 }
