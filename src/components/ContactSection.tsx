@@ -1,132 +1,92 @@
-import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, FileDown, ArrowRight } from "lucide-react";
-import {
-  CONTACT_EMAIL,
-  CONTACT_EMAIL_HREF,
-  CV_URL,
-  GITHUB_URL,
-  LINKEDIN_URL,
-} from "@/lib/contact";
+import { CONTACT_EMAIL, CONTACT_EMAIL_HREF, CV_URL, GITHUB_URL, LINKEDIN_URL } from "@/lib/contact";
 
 const ContactSection = () => {
   return (
-    <section
-      id="contact"
-      className="py-24 relative"
-      style={{ background: "#FFD93D" }}
-    >
-      <div
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          backgroundImage: "radial-gradient(circle, rgba(0,0,0,0.08) 1px, transparent 1px)",
-          backgroundSize: "24px 24px",
-          pointerEvents: "none",
-        }}
-      />
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6 }}
-          className="mb-10"
+    <div id="contact" style={{ background: "#1A1815", color: "#FAF8F3" }}>
+      <div style={{ maxWidth: 1240, margin: "0 auto", padding: "clamp(56px,8vw,112px) clamp(20px,5vw,64px) clamp(28px,4vw,44px)" }}>
+        <div
+          style={{
+            fontFamily: "'Martian Mono', ui-monospace, monospace",
+            fontSize: 10,
+            letterSpacing: "0.12em",
+            textTransform: "uppercase",
+            color: "#A39C90",
+            paddingBottom: "clamp(24px,3vw,36px)",
+          }}
         >
-          <p
-            className="font-mono text-xs uppercase tracking-widest mb-2"
-            style={{ color: "#000", opacity: 0.6 }}
-          >
-            // get in touch
-          </p>
-          <h2
-            className="text-4xl sm:text-5xl font-bold mb-5"
-            style={{ fontFamily: "Space Grotesk, sans-serif" }}
-          >
-            Get in touch
-          </h2>
-          <p className="text-base text-gray-800 max-w-xl mx-auto leading-relaxed">
-            I'm looking for part-time and internship engineering work, in Amman
-            or remote. Email is fastest.
-          </p>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="flex flex-col items-center gap-6"
+          Get in touch
+        </div>
+        <a
+          href={CONTACT_EMAIL_HREF}
+          style={{
+            display: "inline-block",
+            color: "#FAF8F3",
+            fontSize: "clamp(24px,4.4vw,52px)",
+            fontWeight: 500,
+            letterSpacing: "-0.03em",
+            lineHeight: 1.1,
+            borderBottom: "1px solid #4A463F",
+            paddingBottom: 8,
+            wordBreak: "break-word",
+          }}
+          className="contact-email-link"
         >
-          {/* Primary CTA: email */}
-          <motion.a
-            whileHover={{ y: -3 }}
-            whileTap={{ scale: 0.97 }}
-            href={CONTACT_EMAIL_HREF}
-            className="neo-btn flex items-center gap-3 px-8 py-4 font-bold text-base group max-w-full"
-            style={{ background: "#fff" }}
-          >
-            <Mail size={22} className="flex-shrink-0" />
-            <span className="break-all">{CONTACT_EMAIL}</span>
-            <ArrowRight
-              size={16}
-              className="flex-shrink-0 group-hover:translate-x-1 transition-transform duration-300"
-            />
-          </motion.a>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <motion.a
-            whileHover={{ y: -3 }}
-            whileTap={{ scale: 0.97 }}
+          {CONTACT_EMAIL}
+        </a>
+        <p style={{ margin: "clamp(24px,3vw,34px) 0 0", maxWidth: 560, fontSize: "clamp(16px,1.7vw,19px)", lineHeight: 1.6, color: "#C9C3B8" }}>
+          I'm looking for part-time and internship engineering work, in Amman or remote. Email is fastest.
+        </p>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "12px 26px", marginTop: "clamp(28px,3vw,40px)", fontSize: 15, fontWeight: 500 }}>
+          <a
             href={GITHUB_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="neo-btn flex items-center gap-3 px-8 py-4 font-bold text-base group"
-            style={{ background: "#fff" }}
+            className="contact-dark-link"
+            style={{ color: "#FAF8F3", borderBottom: "1px solid #4A463F", paddingBottom: 2 }}
           >
-            <Github size={22} />
-            GitHub
-            <ArrowRight
-              size={16}
-              className="group-hover:translate-x-1 transition-transform duration-300"
-            />
-          </motion.a>
-          <motion.a
-            whileHover={{ y: -3 }}
-            whileTap={{ scale: 0.97 }}
+            GitHub &#8599;
+          </a>
+          <a
             href={LINKEDIN_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="neo-btn flex items-center gap-3 px-8 py-4 font-bold text-base group"
-            style={{ background: "#66D9EF" }}
+            className="contact-dark-link"
+            style={{ color: "#FAF8F3", borderBottom: "1px solid #4A463F", paddingBottom: 2 }}
           >
-            <Linkedin size={22} />
-            LinkedIn
-            <ArrowRight
-              size={16}
-              className="group-hover:translate-x-1 transition-transform duration-300"
-            />
-          </motion.a>
-          <motion.a
-            whileHover={{ y: -3 }}
-            whileTap={{ scale: 0.97 }}
+            LinkedIn &#8599;
+          </a>
+          <a
             href={CV_URL}
-            className="neo-btn flex items-center gap-3 px-8 py-4 font-bold text-base group"
-            style={{ background: "#fff" }}
+            target="_blank"
+            rel="noopener"
+            className="contact-dark-link"
+            style={{ color: "#FAF8F3", borderBottom: "1px solid #4A463F", paddingBottom: 2 }}
           >
-            <FileDown size={22} />
-            Download CV
-            <ArrowRight
-              size={16}
-              className="group-hover:translate-x-1 transition-transform duration-300"
-            />
-          </motion.a>
-          </div>
-        </motion.div>
+            Download CV &#8599;
+          </a>
+        </div>
       </div>
-    </section>
+      <div
+        style={{
+          maxWidth: 1240,
+          margin: "0 auto",
+          padding: "20px clamp(20px,5vw,64px) clamp(28px,4vw,44px)",
+          borderTop: "1px solid #33302B",
+          display: "flex",
+          flexWrap: "wrap",
+          gap: "10px 24px",
+          justifyContent: "space-between",
+          fontFamily: "'Martian Mono', ui-monospace, monospace",
+          fontSize: 9.5,
+          letterSpacing: "0.1em",
+          textTransform: "uppercase",
+          color: "#8A8479",
+        }}
+      >
+        <div>Jawad Alarman &middot; Amman, Jordan</div>
+        <div>Built by Jawad Alarman &middot; 2026</div>
+      </div>
+    </div>
   );
 };
 

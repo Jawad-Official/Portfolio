@@ -1,276 +1,180 @@
-import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, Code2, Terminal, HardDrive } from "lucide-react";
-// TODO(jawad): compress src/assets/me.jpg. It is 2.8 MB, the largest asset on the page.
 import meImage from "@/assets/me.jpg";
-import {
-  CONTACT_EMAIL_HREF,
-  CV_URL,
-  GITHUB_URL,
-  LINKEDIN_URL,
-} from "@/lib/contact";
+import { CONTACT_EMAIL, CONTACT_EMAIL_HREF, CV_URL, GITHUB_URL, LINKEDIN_URL } from "@/lib/contact";
 
-const techPills = [
-  "Python",
-  "FastAPI",
-  "PostgreSQL",
-  "Redis",
-  "Celery",
-  "Next.js",
-  "React Native",
-  "TypeScript",
-];
-
-const FloatingIcon = ({
-  children,
-  style,
-  delay = 0,
-}: {
-  children: React.ReactNode;
-  style: React.CSSProperties;
-  delay?: number;
-}) => (
-  <motion.div
-    initial={{ y: 0 }}
-    animate={{ y: [-8, 8, -8] }}
-    transition={{ duration: 3 + delay, repeat: Infinity, ease: "easeInOut", delay }}
-    style={{
-      position: "absolute",
-      border: "2px solid #000",
-      boxShadow: "4px 4px 0 #000",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      fontWeight: 700,
-      ...style,
-    }}
-  >
-    {children}
-  </motion.div>
-);
+const mono: React.CSSProperties = {
+  fontFamily: "'Martian Mono', ui-monospace, monospace",
+};
 
 const HeroSection = () => {
   return (
-    <section
-      id="home"
-      className="relative min-h-screen flex flex-col items-center justify-center pt-20 pb-10 overflow-hidden"
-      style={{ background: "#f0f0f0" }}
+    <div
+      id="top"
+      style={{
+        maxWidth: 1240,
+        margin: "0 auto",
+        padding: "clamp(48px,9vw,104px) clamp(20px,5vw,64px) clamp(36px,5vw,64px)",
+      }}
     >
-      {/* Dot grid background */}
-      <div className="absolute inset-0 dot-grid pointer-events-none" />
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: "10px 24px",
+          justifyContent: "space-between",
+          ...mono,
+          fontSize: 10,
+          letterSpacing: "0.12em",
+          textTransform: "uppercase",
+          color: "#67625A",
+          paddingBottom: "clamp(28px,4vw,52px)",
+        }}
+      >
+        <div>Portfolio / 2026</div>
+        <div>Amman, Jordan &nbsp;&middot;&nbsp; Open to work</div>
+      </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 w-full">
-        <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
-          {/* Left: Text content */}
-          <div className="flex-1 text-center lg:text-left">
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="font-caveat text-2xl sm:text-3xl mb-3"
-              style={{ color: "#66D9EF", fontWeight: 700 }}
-            >
-              Hi there! 👋
-            </motion.p>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: "clamp(28px,4vw,56px)", alignItems: "flex-end" }}>
+        <div style={{ flex: "3 1 min(100%,420px)" }}>
+          <h1
+            style={{
+              margin: 0,
+              fontSize: "clamp(42px,8.4vw,94px)",
+              fontWeight: 500,
+              letterSpacing: "-0.035em",
+              lineHeight: 0.94,
+            }}
+          >
+            Jawad Alarman
+          </h1>
+          <p
+            style={{
+              margin: "clamp(20px,2.5vw,30px) 0 0",
+              maxWidth: 640,
+              fontSize: "clamp(18px,2.05vw,25px)",
+              fontWeight: 400,
+              lineHeight: 1.45,
+              color: "#302D28",
+            }}
+          >
+            I'm an AI engineer studying BSc AI and Data Science.
+          </p>
+          <p
+            style={{
+              margin: "2px 0 0",
+              maxWidth: 640,
+              fontSize: "clamp(16px,1.7vw,19px)",
+              fontWeight: 400,
+              lineHeight: 1.6,
+              color: "#4A463F",
+            }}
+          >
+            I live in the gap between the paper and the product. Research tells us what's possible;
+            engineering decides whether anyone ever touches it. I care about both ends, the idea on the
+            page and the thing running in production at 3am.
+          </p>
+          <p
+            style={{
+              margin: "2px 0 0",
+              maxWidth: 640,
+              fontSize: "clamp(16px,1.7vw,19px)",
+              fontWeight: 400,
+              lineHeight: 1.6,
+              color: "#4A463F",
+            }}
+          >
+            Right now I'm building, reading, and turning interesting results into systems people can
+            actually use.
+          </p>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-5"
-              style={{ fontFamily: "Space Grotesk, sans-serif" }}
-            >
-              I'm Jawad Alarman.
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-base sm:text-lg text-gray-700 mb-6 max-w-xl mx-auto lg:mx-0 leading-relaxed"
-            >
-              Backend and AI engineer. Python, FastAPI, PostgreSQL, Redis and
-              Celery, plus Next.js and React Native on the front. Currently
-              building an AI language-learning platform for an English-language
-              school in Amman.
-            </motion.p>
-
-            {/* Social icons */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="flex items-center gap-3 justify-center lg:justify-start mb-6"
-            >
-              <a
-                href={GITHUB_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="neo-btn p-2.5"
-                style={{ background: "#fff" }}
-                aria-label="GitHub"
-              >
-                <Github size={20} />
-              </a>
-              <a
-                href={LINKEDIN_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="neo-btn p-2.5"
-                style={{ background: "#fff" }}
-                aria-label="LinkedIn"
-              >
-                <Linkedin size={20} />
-              </a>
-              <a
-                href={CONTACT_EMAIL_HREF}
-                className="neo-btn p-2.5"
-                style={{ background: "#fff" }}
-                aria-label="Email"
-              >
-                <Mail size={20} />
-              </a>
-            </motion.div>
-
-            {/* CTA */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="flex flex-wrap items-center gap-3 justify-center lg:justify-start"
-            >
-              <a
-                href="#contact"
-                className="neo-btn inline-flex items-center gap-2 px-6 py-3 text-base font-bold"
-                style={{ background: "#66D9EF" }}
-              >
-                Get In Touch!
-              </a>
-              <a
-                href={CV_URL}
-                className="neo-btn inline-flex items-center gap-2 px-6 py-3 text-base font-bold"
-                style={{ background: "#fff" }}
-              >
-                Download CV
-              </a>
-            </motion.div>
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "8px 18px",
+              marginTop: "clamp(24px,3vw,34px)",
+              ...mono,
+              fontSize: 10,
+              letterSpacing: "0.08em",
+              textTransform: "uppercase",
+              color: "#67625A",
+            }}
+          >
+            <div>BSc AI &amp; Data Science, HTU</div>
+            <div style={{ color: "#C8C1B5" }}>/</div>
+            <div>1st place, JoHackathon 2025</div>
+            <div style={{ color: "#C8C1B5" }}>/</div>
+            <div>Amman or remote</div>
           </div>
 
-          {/* Right: Avatar with floating decorations */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.85 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
-            className="relative flex-shrink-0 flex items-center justify-center"
-            style={{ width: 320, height: 340 }}
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "10px 24px",
+              marginTop: "clamp(26px,3vw,36px)",
+              fontSize: 15,
+              fontWeight: 500,
+            }}
           >
-            {/* Main avatar box */}
-            <div
-              style={{
-                position: "relative",
-                width: 240,
-                height: 260,
-                border: "3px solid #000",
-                boxShadow: "6px 6px 0 #000",
-                background: "#66D9EF",
-                overflow: "hidden",
-              }}
+            <a href={CONTACT_EMAIL_HREF} style={{ borderBottom: "1px solid #2A46C8", paddingBottom: 2 }}>
+              {CONTACT_EMAIL}
+            </a>
+            <a
+              href={GITHUB_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline-link"
+              style={{ color: "#1A1815" }}
             >
-              <img
-                src={meImage}
-                alt="Jawad Alarman"
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                  objectPosition: "center 20%",
-                  display: "block",
-                }}
-              />
-              {/* Location badge */}
-              <div
-                style={{
-                  position: "absolute",
-                  bottom: 10,
-                  right: -2,
-                  background: "#6BCB77",
-                  border: "2px solid #000",
-                  padding: "4px 10px",
-                  fontWeight: 700,
-                  fontSize: 12,
-                  whiteSpace: "nowrap",
-                }}
-              >
-                Amman, Jordan
-              </div>
-            </div>
-
-            {/* Floating decorative elements */}
-            <FloatingIcon
-              delay={0}
-              style={{
-                top: 0,
-                left: 10,
-                width: 52,
-                height: 52,
-                background: "#FFD93D",
-                fontSize: 22,
-              }}
+              GitHub
+            </a>
+            <a
+              href={LINKEDIN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline-link"
+              style={{ color: "#1A1815" }}
             >
-              <Code2 size={24} />
-            </FloatingIcon>
-
-            <FloatingIcon
-              delay={0.5}
-              style={{
-                top: 10,
-                right: 0,
-                width: 52,
-                height: 52,
-                background: "#FFD93D",
-                fontSize: 22,
-              }}
-            >
-              <Terminal size={22} />
-            </FloatingIcon>
-
-            <FloatingIcon
-              delay={1}
-              style={{
-                bottom: 30,
-                left: 0,
-                width: 48,
-                height: 48,
-                background: "#FF6B9D",
-                fontSize: 18,
-              }}
-            >
-              <HardDrive size={20} />
-            </FloatingIcon>
-          </motion.div>
+              LinkedIn
+            </a>
+            <a href={CV_URL} target="_blank" rel="noopener" className="underline-link" style={{ color: "#1A1815" }}>
+              Download CV
+            </a>
+          </div>
         </div>
 
-        {/* Tech pills */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="mt-12 flex flex-wrap gap-3 justify-center lg:justify-start"
-        >
-          {techPills.map((pill, i) => (
-            <motion.div
-              key={pill}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 + i * 0.05 }}
-              whileHover={{ y: -3 }}
-              className="neo-btn flex items-center gap-2 px-4 py-2 text-sm font-semibold bg-white cursor-default"
-            >
-              {pill}
-            </motion.div>
-          ))}
-        </motion.div>
+        <div style={{ flex: "1 1 min(100%,220px)", maxWidth: 300 }}>
+          <div
+            style={{
+              position: "relative",
+              width: "100%",
+              aspectRatio: "4/5",
+              border: "1px solid #DFDAD0",
+              background: "#F2EEE7",
+              overflow: "hidden",
+            }}
+          >
+            <img
+              src={meImage}
+              alt="Jawad Alarman"
+              style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 20%", display: "block" }}
+            />
+          </div>
+          <div
+            style={{
+              marginTop: 10,
+              ...mono,
+              fontSize: 9.5,
+              letterSpacing: "0.08em",
+              textTransform: "uppercase",
+              color: "#67625A",
+            }}
+          >
+            Fig. 0 &middot; portrait
+          </div>
+        </div>
       </div>
-    </section>
+    </div>
   );
 };
 
