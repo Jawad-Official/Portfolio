@@ -34,33 +34,33 @@ interface Project {
 const projects: Project[] = [
   {
     number: "01",
-    name: "EcoLens",
-    tagline: "Earth-health observatory",
-    links: [{ label: "GitHub", url: "https://github.com/Jawad-Official/EcoLens" }],
+    name: "LingoArt Placement",
+    tagline: "English placement testing · client work",
+    links: [{ label: "Website", url: "http://72.62.156.188" }],
     image: {
-      src: "/dashboard-3d.png",
-      alt: "EcoLens globe dashboard screenshot",
-      aspect: "4/3",
-      caption: "Fig. 1 · seven live data layers on a 3D Cesium globe",
+      src: "/Lingoart.png",
+      alt: "LingoArt Placement student login screenshot",
+      aspect: "1291/822",
+      caption: "Fig. 1 · student access to the Cambridge placement test",
     },
     fields: [
       {
         label: "Problem",
         value:
-          "Environmental signals such as fires, air quality, weather and natural events are spread across separate public APIs with no single view.",
+          "LingoArt placed students with a paper Cambridge test, audio played in the room, and manual marking, so results were slow and hard to audit.",
       },
       {
         label: "What I built",
         value:
-          "A full-stack Earth-health observatory aggregating seven live data layers, rendered as both a 3D Cesium globe and a 2D MapLibre map.",
+          "A supervised online placement platform: three 70-question forms with timed listening, reading and language sections, one-play audio streaming, autosave and recovery. Staff score writing and interviews, schedule interview slots, then publish one recommended level per student.",
       },
       {
         label: "My role",
-        value: "Sole developer. Backend API aggregation and caching, plus the 3D globe and 2D map front end.",
+        value:
+          "Sole developer on a client engagement. Exam engine, server-side timing and scoring, role-based auth, PostgreSQL schema, and the self-hosted Docker deployment with automated backups.",
       },
     ],
-    outcome: "Outcome: 1st place, JoHackathon 2025.",
-    stack: "Next.js 15 · TypeScript · CesiumJS · MapLibre GL · TanStack Query · FastAPI · Pydantic · httpx (async) · SQLite caching",
+    stack: "Next.js · React · TypeScript · PostgreSQL · Zod · Docker Compose · Caddy · pgBackRest · Vitest · Playwright",
   },
   {
     number: "02",
@@ -96,27 +96,33 @@ const projects: Project[] = [
   },
   {
     number: "03",
-    name: "LingoArt Placement",
-    tagline: "English placement testing · client work",
-    links: [{ label: "Website", url: "http://72.62.156.188" }],
+    name: "EcoLens",
+    tagline: "Earth-health observatory",
+    links: [{ label: "GitHub", url: "https://github.com/Jawad-Official/EcoLens" }],
+    image: {
+      src: "/dashboard-3d.png",
+      alt: "EcoLens globe dashboard screenshot",
+      aspect: "4/3",
+      caption: "Fig. 3 · seven live data layers on a 3D Cesium globe",
+    },
     fields: [
       {
         label: "Problem",
         value:
-          "LingoArt placed students with a paper Cambridge test, audio played in the room, and manual marking, so results were slow and hard to audit.",
+          "Environmental signals such as fires, air quality, weather and natural events are spread across separate public APIs with no single view.",
       },
       {
         label: "What I built",
         value:
-          "A supervised online placement platform: three 70-question forms with timed listening, reading and language sections, one-play audio streaming, autosave and recovery. Staff score writing and interviews, schedule interview slots, then publish one recommended level per student.",
+          "A full-stack Earth-health observatory aggregating seven live data layers, rendered as both a 3D Cesium globe and a 2D MapLibre map.",
       },
       {
         label: "My role",
-        value:
-          "Sole developer on a client engagement. Exam engine, server-side timing and scoring, role-based auth, PostgreSQL schema, and the self-hosted Docker deployment with automated backups.",
+        value: "Sole developer. Backend API aggregation and caching, plus the 3D globe and 2D map front end.",
       },
     ],
-    stack: "Next.js · React · TypeScript · PostgreSQL · Zod · Docker Compose · Caddy · pgBackRest · Vitest · Playwright",
+    outcome: "Outcome: 1st place, JoHackathon 2025.",
+    stack: "Next.js 15 · TypeScript · CesiumJS · MapLibre GL · TanStack Query · FastAPI · Pydantic · httpx (async) · SQLite caching",
   },
   {
     number: "04",
@@ -127,7 +133,7 @@ const projects: Project[] = [
       src: "/taqa.png",
       alt: "Taqa storefront screenshot",
       aspect: "16/9",
-      caption: "Fig. 3 · Arabic-first storefront, multi-market",
+      caption: "Fig. 4 · Arabic-first storefront, multi-market",
     },
     fields: [
       {
