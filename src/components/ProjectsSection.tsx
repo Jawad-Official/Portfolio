@@ -96,6 +96,30 @@ const projects: Project[] = [
   },
   {
     number: "03",
+    name: "LingoArt Placement",
+    tagline: "English placement testing · client work",
+    links: [{ label: "Website", url: "http://72.62.156.188" }],
+    fields: [
+      {
+        label: "Problem",
+        value:
+          "LingoArt placed students with a paper Cambridge test, audio played in the room, and manual marking, so results were slow and hard to audit.",
+      },
+      {
+        label: "What I built",
+        value:
+          "A supervised online placement platform: three 70-question forms with timed listening, reading and language sections, one-play audio streaming, autosave and recovery. Staff score writing and interviews, schedule interview slots, then publish one recommended level per student.",
+      },
+      {
+        label: "My role",
+        value:
+          "Sole developer on a client engagement. Exam engine, server-side timing and scoring, role-based auth, PostgreSQL schema, and the self-hosted Docker deployment with automated backups.",
+      },
+    ],
+    stack: "Next.js · React · TypeScript · PostgreSQL · Zod · Docker Compose · Caddy · pgBackRest · Vitest · Playwright",
+  },
+  {
+    number: "04",
     name: "Taqa e-store",
     tagline: "E-commerce platform · client work",
     links: [{ label: "Website", url: "https://taqa-shop.com/" }],
@@ -118,7 +142,7 @@ const projects: Project[] = [
     stack: "Python · FastAPI · Next.js · React · PostgreSQL",
   },
   {
-    number: "04",
+    number: "05",
     name: "Fraud detection model",
     tagline: "Applied ML · published write-up",
     links: [{ label: "GitHub", url: GITHUB_URL }],
@@ -272,7 +296,7 @@ const ProjectsSection = () => {
               color: "#67625A",
             }}
           >
-            Four of six
+            Five of seven
           </div>
         </div>
       </div>
