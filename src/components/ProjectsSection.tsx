@@ -36,7 +36,7 @@ const projects: Project[] = [
     number: "01",
     name: "LingoArt Placement",
     tagline: "English placement testing · client work",
-    links: [{ label: "Website", url: "http://72.62.156.188" }],
+    links: [{ label: "Website", url: "https://placement.lingoart.edu.jo/" }],
     image: {
       src: "/Lingoart.png",
       alt: "LingoArt Placement student login screenshot",
